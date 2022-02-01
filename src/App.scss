@@ -1,0 +1,22 @@
+.app {
+  background-color: aliceblue;
+  width: 1280px;
+  height: 740px;
+
+  &.iframe {
+    z-index: -1;
+  }
+}
+
+.banner {
+  position: absolute;
+  top: 400px;
+  right: 63px;
+  width: 270px;
+  height: 300px;
+  background-color: rgb(87, 160, 202);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

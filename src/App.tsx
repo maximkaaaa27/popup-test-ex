@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Banner } from './components/Banner';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className='main'>
+        <iframe
+        width='1280px'
+        height='740px'  
+        src="https://www.youtube.com/embed/M7FIvfx5J10" 
+        title="YouTube video player" 
+        frameBorder="0" 
+        allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowFullScreen />
+        <Banner />
+      <div>
+          
+        </div>
+      </div>
     </div>
   );
 }
