@@ -16,9 +16,6 @@ function App() {
         allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowFullScreen />
         <Banner />
-      <div>
-          
-        </div>
       </div>
     </div>
   );
