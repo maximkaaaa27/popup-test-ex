@@ -1,7 +1,8 @@
 .app {
-  background-color: aliceblue;
+  position: relative;
+  background-color: #000000;
   width: 1280px;
-  height: 740px;
+  height: 720px;
 
   &.iframe {
     z-index: -1;
@@ -10,13 +11,55 @@
 
 .banner {
   position: absolute;
-  top: 400px;
-  right: 63px;
-  width: 270px;
-  height: 300px;
-  background-color: rgb(87, 160, 202);
+  top: 220px;
+  right: 0px;
+  width: 251px;
+  height: 357px;
+  background-color: #86D3F4;
+  padding: 10px;
   z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+
+    .contains {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: center;
+      text-align: center;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0px;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+
+      .text_qr_code {
+        margin-top: 20px;
+        width: 126px;
+        height: 32px;
+        font-size: 14px;
+      }
+
+      .contains_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 156px;
+        height: 52px;
+        background-color: #000000;
+        color: #86D3F4;
+        margin-top: 20px;
+        font-size: large;
+
+        &:hover {
+          opacity: .80;
+        }
+
+        &:active {
+          width: 152px;
+          height: 51px;
+        }
+      }
+    }
 }
