@@ -1,5 +1,5 @@
 import React from 'react';
-import qrCode from '../assets/qr-code.svg'
+import qrCode from '../assets/qr-code.svg';
 
 export const Banner = () => (
   <div className='banner'>
