@@ -1,12 +1,12 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
+import { IVideoPlayerState } from "./videoplayerState";
 
 interface IVideoContext {
-   playing: boolean
-   played: number
-   duration: number
    play: () => void
    pause: () => void
    setDuration: (duration: number) => void
+   setProgress: (state: any) => void
+   state: IVideoPlayerState
 }
 
 

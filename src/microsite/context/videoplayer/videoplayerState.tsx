@@ -8,14 +8,12 @@ interface IChildren {
 
 export interface IVideoPlayerState {
   playing: boolean
-  played: number
-  duration: number
+  playedSeconds: number
 }
 
 const initState = {
   playing: true,
-  duration: 0,
-  played: 0
+  playedSeconds: 0,
 }
 
 
@@ -32,14 +30,16 @@ export const VideoPlayerContextProvider = ({children} : IChildren) => {
   }
 
   const setDuration = (duration: number) => {
-    dispatch({type: 'setDuration', payload: duration})
+    dispatch({type: 'setDuration', payload: {duration}})
+  }
+
+  const setProgress = (state: IVideoPlayerState) => {
+    dispatch({type: 'setProgress', payload: {...state}})
   }
   return (
     <VideoPlayerContext.Provider value={{
-      play, pause, setDuration,
-      playing: state.playing,
-      played: state.played, 
-      duration: state.duration,
+      play, pause, setDuration, setProgress, state
+
       }}>
       {children}
     </VideoPlayerContext.Provider>

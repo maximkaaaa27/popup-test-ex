@@ -1,10 +1,9 @@
 
 import { Promo } from '../../views/Promo';
 import { FirstBanner } from '../../views/FirstBanner';
+import { IViewState } from './bannerState';
 
-interface IViewState {
-  currentRender: JSX.Element
-}
+
 
 
 export const bannerReducer = (state: IViewState, action: {type: string}) => {

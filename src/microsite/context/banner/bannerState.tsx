@@ -1,5 +1,4 @@
 import { ReactChild, ReactChildren, useReducer } from "react";
-import { FirstBanner } from "../../views/FirstBanner";
 import { BannerContext } from "./bannerContext";
 import { bannerReducer } from "./bannerReducer";
 
@@ -7,9 +6,12 @@ interface IChildren {
   children: ReactChild | ReactChild[] | ReactChildren
 }
 
+export interface IViewState {
+  currentRender: JSX.Element | null
+}
 
 const initState = {
-  currentRender: <FirstBanner />
+  currentRender: null
 }
 
 

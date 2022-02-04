@@ -2,7 +2,8 @@ import { IVideoPlayerState } from "./videoplayerState"
 
 
 
-export const videoplayerReducer = (state: IVideoPlayerState, action: {type: string, payload?: number}) => {
+
+export const videoplayerReducer = (state: IVideoPlayerState, action: {type: string, payload?: any}) => {
   switch(action.type) {
 
     case 'play' : {
@@ -25,7 +26,13 @@ export const videoplayerReducer = (state: IVideoPlayerState, action: {type: stri
 
     case 'setDuration' : {
       return Object.assign({}, state, {
-        duration: action.payload
+        duration: action.payload.duration
+      })
+    }
+
+    case 'setProgress' : {
+      return Object.assign({}, state, {
+        ...action.payload
       })
     }
 

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import qrCode from '../assets/qr-code.svg';
 import { BannerContext } from '../context/banner/bannerContext';
 import { VideoPlayerContext } from '../context/videoplayer/videoplayerContext';
@@ -13,6 +13,7 @@ const handleOkBtn = () => {
   showPromo();
   pause();
 }
+
 
 
 return (

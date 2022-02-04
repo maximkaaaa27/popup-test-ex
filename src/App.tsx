@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import { VideoPlayerContextProvider } from './microsite/context/videoplayer/videoplayerState';
 import { MicroSiteApp } from './microsite/MicrositeApp';
-import { VideoPlayer } from './Video';
+import { VideoPlayerComponent } from './VideoPlayerComponent';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <VideoPlayerContextProvider>
-        <VideoPlayer urlYouTube={volvoYT} />
+        <VideoPlayerComponent urlYouTube={volvoYT} />
         <MicroSiteApp />
     </VideoPlayerContextProvider>
   );
