@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import qrCode from '../assets/qr-code.svg';
+import { InputNumber } from '../components/InputNumber';
+import { BannerContext } from '../context/banner/bannerContext';
+import { VideoPlayerContext } from '../context/videoplayer/videoplayerContext';
 
-export const Promo = () => (
+export const Promo = () => {
+
+const { closeAll } = useContext(BannerContext);
+const { play } = useContext(VideoPlayerContext);
+
+const handleCloseClick = () => {
+  closeAll();
+  play();
+}
+
+return (
   <div className='promo'>
     <div  className='promo__left'>
-
+      <InputNumber />
     </div>
     <div className='promo__right'>
-      <div className='contains_button' onClick={() => console.log('close')}>
+      <div className='contains_button' onClick={handleCloseClick}>
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
         width="50" 
@@ -30,4 +43,4 @@ export const Promo = () => (
     </div>
 
   </div>
-)
+)}
