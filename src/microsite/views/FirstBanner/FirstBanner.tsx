@@ -1,7 +1,9 @@
-import React, { useContext, useEffect } from 'react';
-import qrCode from '../assets/qr-code.svg';
-import { BannerContext } from '../context/banner/bannerContext';
-import { VideoPlayerContext } from '../context/videoplayer/videoplayerContext';
+import React, { useContext } from 'react';
+import { BannerContext } from '../../context/banner/bannerContext';
+import { VideoPlayerContext } from '../../context/videoplayer/videoplayerContext';
+import './_banner.scss';
+import qrCode from '../../assets/qr-code.svg';
+
 
 export const FirstBanner = () => {
 
@@ -9,12 +11,9 @@ const { showPromo } = useContext(BannerContext);
 const { pause } = useContext(VideoPlayerContext);
 
 const handleOkBtn = () => {
-  
   showPromo();
   pause();
 }
-
-
 
 return (
     <div className='banner'>

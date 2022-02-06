@@ -1,6 +1,6 @@
 
-import { Promo } from '../../views/Promo';
-import { FirstBanner } from '../../views/FirstBanner';
+import { Promo } from '../../views/Promo/Promo';
+import { FirstBanner } from '../../views/FirstBanner/FirstBanner';
 import { IViewState } from './bannerState';
 
 

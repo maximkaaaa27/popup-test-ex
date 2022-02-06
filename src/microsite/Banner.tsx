@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import { BannerContext } from '../context/banner/bannerContext';
-import { VideoPlayerContext } from '../context/videoplayer/videoplayerContext';
+import { BannerContext } from './context/banner/bannerContext';
+import { VideoPlayerContext } from './context/videoplayer/videoplayerContext';
 
 export const Banner = () => {
 
@@ -15,7 +15,8 @@ export const Banner = () => {
           showBanner();
         }
       } 
-  })
+    }
+  )
   
   return (
     <>

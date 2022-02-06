@@ -1,0 +1,118 @@
+$bg-banner-color: #86D3F4;
+
+.phone-input{
+  margin: 72px 40px;
+
+  &__title {
+    padding-bottom: 13px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+&__number-value {
+  position: static;
+  margin-bottom: 15px;
+  left: 18.55%;
+  right: 18.55%;
+  top: 20.11%;
+  bottom: 74.62%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 37px;
+}
+
+&__sign-bottom {
+  margin-bottom: 20px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+&__keyboard {
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    .col {
+      cursor: pointer;
+      display: flex;
+      margin: 4px;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 12px 40px;
+      border: solid 2px black;
+      position: static;
+      left: 34.51%;
+      right: 34.51%;
+      top: 0%;
+      bottom: 0%;
+      background-color: $bg-banner-color;
+        &:hover {
+          opacity: 0.8;
+        }
+        &:active {
+          background-color:black;
+          color: white;
+        }
+        &__backspace {
+          margin: 4px;
+          width: 192px;
+          height: 43px;
+          text-align: center;
+          background-color: $bg-banner-color;
+          border: solid 2px black;
+          &:hover {
+            opacity: 0.8;
+          }
+          &:active {
+            background-color:black;
+            color: white;
+          }
+        }
+    }
+
+  }
+
+  
+
+}
+
+&___submit {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 19px;
+
+  position: static;
+  left: 12.63%;
+  right: 12.63%;
+  top: 82.8%;
+  bottom: 9.99%;
+  border: solid black;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+}

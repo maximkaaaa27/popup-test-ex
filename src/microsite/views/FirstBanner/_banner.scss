@@ -1,0 +1,58 @@
+$bg-banner-color: #86D3F4;
+
+
+.banner {
+  position: absolute;
+  right: 0;
+  top: 220px;
+  width: 251px;
+  height: 357px;
+  padding: 30px 10px 10px;
+  background: $bg-banner-color;
+
+    .contains {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0px;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+
+      .text_qr_code {
+        margin-top: 20px;
+        width: 126px;
+        height: 32px;
+        font-size: 14px;
+      }
+
+      .contains_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 156px;
+        height: 52px;
+        background-color: #000000;
+        color: $bg-banner-color;
+        margin-top: 20px;
+        font-size: large;
+        cursor: pointer;
+
+        &:hover {
+          opacity: .80;
+        }
+
+        &:active {
+          width: 152px;
+          height: 51px;
+        }
+      }
+    }
+}
+

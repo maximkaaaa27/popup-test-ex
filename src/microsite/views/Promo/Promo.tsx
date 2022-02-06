@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import qrCode from '../assets/qr-code.svg';
-import { InputNumber } from '../components/InputNumber';
-import { BannerContext } from '../context/banner/bannerContext';
-import { VideoPlayerContext } from '../context/videoplayer/videoplayerContext';
+import qrCode from '../../assets/qr-code.svg';
+import './_promo.scss';
+import { PhoneInput } from '../../components/phoneInput/PhoneInput';
+import { BannerContext } from '../../context/banner/bannerContext';
+import { VideoPlayerContext } from '../../context/videoplayer/videoplayerContext';
 
 export const Promo = () => {
 
@@ -16,11 +17,11 @@ const handleCloseClick = () => {
 
 return (
   <div className='promo'>
-    <div  className='promo__left'>
-      <InputNumber />
+    <div  className='promo-left'>
+      <PhoneInput />
     </div>
-    <div className='promo__right'>
-      <div className='contains_button' onClick={handleCloseClick}>
+    <div className='promo-right'>
+      <div className='close-btn' onClick={handleCloseClick}>
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
         width="50" 
