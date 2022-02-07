@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { navKeyContext } from './context/arrowKeyNav/navKeyContext';
 import { BannerContext } from './context/banner/bannerContext';
 import { VideoPlayerContext } from './context/videoplayer/videoplayerContext';
 
@@ -6,6 +7,7 @@ export const Banner = () => {
 
   const { currentRender, showBanner } = useContext(BannerContext);
   const { state } = useContext(VideoPlayerContext);
+  const { keyPressListener, currentFocusTarget } = useContext(navKeyContext)
 
   useEffect (() => {
     
@@ -17,10 +19,12 @@ export const Banner = () => {
       } 
     }
   )
+
+  document.getElementById(currentFocusTarget)?.focus()
   
   return (
-    <>
+    <div onKeyDown={(e) => keyPressListener(e)}>
       {currentRender}
-    </>
+    </div>
   )
 }

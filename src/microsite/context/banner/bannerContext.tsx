@@ -4,6 +4,7 @@ interface IBannerContext {
   currentRender: JSX.Element | null
   showBanner: () => void
   showPromo: () => void
+  showFinal: () => void
   closeAll: () => void
 }
 

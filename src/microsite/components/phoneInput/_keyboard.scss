@@ -1,0 +1,56 @@
+$bg-banner-color: #86D3F4;
+
+
+.phone-input__keyboard {
+  margin-bottom: 15px;
+  .row {
+    display: flex;
+    justify-content: center;
+
+    .col {
+      min-width: 88px;
+      min-height: 52px;
+      cursor: pointer;
+      margin: 2px;
+      border:  2px solid black;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      background-color: $bg-banner-color;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          background-color:black;
+          color: white;
+        }
+
+
+      &__backspace {
+
+        margin: 2px;
+
+        width: 60%;
+        min-height: 52px;
+        background-color: $bg-banner-color;
+        border: solid 2px black;
+        cursor: pointer;
+
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+
+        &:hover {
+          opacity: 0.8;
+        }
+        &:active {
+          background-color:black;
+          color: white;
+        }
+      }
+    }
+  }
+}

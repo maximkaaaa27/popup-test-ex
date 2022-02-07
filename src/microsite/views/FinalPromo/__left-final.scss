@@ -1,0 +1,24 @@
+.promo-left-final {
+
+  margin: 265px 48px;
+
+  &__title{
+    width: 284px;
+    height: 76px;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__info {
+    width: 284px;
+    height: 32px;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+  }
+}

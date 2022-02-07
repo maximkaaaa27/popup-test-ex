@@ -20,14 +20,13 @@ export const BannerContextProvider = ({children} : IChildren) => {
   const [state, dispatch] = useReducer(bannerReducer, initState);
 
   const showBanner = () => dispatch({type: 'showFirstBanner'});
-
   const showPromo = () => dispatch({type: 'showPromo'});
-
-  const closeAll = () => dispatch({type: 'closeAll'})
+  const showFinal = () => dispatch({type: 'showFinal'});
+  const closeAll = () => dispatch({type: 'closeAll'});
 
   return (
     <BannerContext.Provider value={{
-      currentRender: state.currentRender, showBanner, showPromo, closeAll}}
+      currentRender: state.currentRender, showBanner, showPromo, showFinal, closeAll}}
     >
       {children}
     </BannerContext.Provider>
