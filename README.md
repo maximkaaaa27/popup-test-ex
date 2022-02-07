@@ -1,48 +1,55 @@
-Задание для Junior Frontend Developer
+## Использовал в задании:
 
-В качестве тестового задания необходимо создать упрощенную демо-версию микросайта для SmartTV. Посмотреть пример работы механики можно здесь https://drive.google.com/file/d/11nfey19N6pPm43D6bbUxZgxRC0kwIp_O/view?usp=sharing
- или 
- здесь http://getshop.tv/portfolio/volvo/.
+### React
 
-Ссылка на макет
-https://www.figma.com/file/TxI66vUCvCTtX5ljGR3fxe/FrontTestVOD?node-id=167%3A408
+### TypeScript
 
-Микросайт состоит из серии экранов:
-промо-видео с баннером (верстать не обязательно)
-экран ввода номера (с экранной клавиатурой)
-финальный инфо-экран
-Необходимо реализовать вёрстку экранов микросайта, а также навигацию и механизм ввода номера при помощи экранной клавиатуры. Кнопка «Подтвердить номер» должна становиться доступной для выбора (enabled) только при полностью введенном номере и согласии с обработкой ПД. Валидацию номера проводить не нужно, достаточно проверять, что номер введен полностью.
-Неинтерактивные статичные элементы (включая текст) разрешается не верстать, а использовать как часть (фоновой) картинки. 
+### ReactPlayer для видео с Жан-Клод Ван Даммом
 
 
-Для первого экрана добавить видео (отрывок около минуты длиной, к примеру отсюда
-https://youtu.be/M7FIvfx5J10
-) и баннер, появляющийся через 5 секунд от начала проигрывания ролика.
+### Переход по вьюшкам с помощью Context, также как и управление воспроизведением и навигацией с клавиатуры
 
-Навигация должна осуществляться также и с клавиатуры:
-стрелки для навигации между кнопками (включая кнопки “закрыть”, “подтвердить”);
-цифры и BACKSPACE для быстрого ввода номера;
-ENTER для выбора кнопки;
+### Подробнее о навигации. Сверху, в контексте сетка из массивов. Навигация осуществляется по макету Array[X][Y]
 
 
-Требования:
-Используйте React (использование TypeScript будет плюсом)
-Если сочтете нужным, можете использовать сторонние библиотеки.
-Разрешение микросайта фиксированное, 1280х720.
 
 
-На выходе ожидается:
-Ссылка на github/gitlab с осмысленной историей коммитов
-Ссылка на развернутую версию микросайта
+Getting Started with Create React App
+This project was bootstrapped with Create React App.
 
+Available Scripts
+In the project directory, you can run:
 
-Бонусные задания:
-Переход из экрана с видео и баннером должен паузить видео. Переход обратно должен продолжать воспроизведение.
-добавить валидацию номера при помощи открытого сервиса (например, 
-https://numverify.com/documentation).
-Вместо финального инфо-экрана сверстайте экран со слайдером. Управление слайдером осуществляется также и с помощью клавиатуры. Пример
-https://www.figma.com/file/g1TyR1AAvI2Hratgdm6PiL/Untitled?node-id=1%3A2 
-Если возникнут какие-либо вопросы — пиши в телеграм @p4mpush!
+npm start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
 
-Успехов!
+The page will reload if you make edits.
+You will also see any lint errors in the console.
 
+npm test
+Launches the test runner in the interactive watch mode.
+See the section about running tests for more information.
+
+npm run build
+Builds the app for production to the build folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
+
+See the section about deployment for more information.
+
+npm run eject
+Note: this is a one-way operation. Once you eject, you can’t go back!
+
+If you aren’t satisfied with the build tool and configuration choices, you can eject at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except eject will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use eject. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+Learn More
+You can learn more in the Create React App documentation.
+
+To learn React, check out the React documentation.
