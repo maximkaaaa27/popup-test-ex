@@ -1,18 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import qrCode from '../../assets/qr-code.svg';
 import './_promo.scss';
+
+import { useAppDispatch } from '../../../hooks/hooks';
+import { play } from '../../../redux/video_control_slice/videoPlayerSlice';
+import { closeAll } from '../../../redux/navigate_slice/navigateSlice';
+
 import { PhoneInput } from '../../components/phoneInput/PhoneInput';
-import { BannerContext } from '../../context/banner/bannerContext';
-import { VideoPlayerContext } from '../../context/videoplayer/videoplayerContext';
+
 
 export const Promo = () => {
 
-  const { closeAll } = useContext(BannerContext);
-  const { play } = useContext(VideoPlayerContext);
+  const dispatch = useAppDispatch();
 
   const handleCloseClick = () => {
-    closeAll();
-    play();
+    dispatch ( closeAll() );
+    dispatch( play() );
   }
 
   return (

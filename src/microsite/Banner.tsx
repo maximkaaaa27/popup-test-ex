@@ -1,30 +1,40 @@
-import React, { useContext, useEffect } from 'react';
-import { navKeyContext } from './context/arrowKeyNav/navKeyContext';
-import { BannerContext } from './context/banner/bannerContext';
-import { VideoPlayerContext } from './context/videoplayer/videoplayerContext';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
+import { switchFocus } from '../redux/arrow_navigate_slice/arrowNavigateSlice';
+import { showElement } from '../redux/navigate_slice/navigateSlice';
+import { route } from '../routes';
+
+
 
 export const Banner = () => {
 
-  const { currentRender, showBanner } = useContext(BannerContext);
-  const { state } = useContext(VideoPlayerContext);
-  const { keyPressListener, currentFocusTarget } = useContext(navKeyContext)
+  const dispatch = useAppDispatch();
+  const { playedSeconds } = useAppSelector(state => state.videoPlayer.onProgress);
+  const { path } = useAppSelector(state => state.navigation.currentRoute);
+  const { currentFocusTarget } = useAppSelector(state => state.arrowNavigation)
+
+
+  const startSecond = 5;
 
   useEffect (() => {
-    
-    if (!currentRender) {
-      let counter = Math.round(state.playedSeconds);
-        if ( counter === 5) {
-          showBanner();
+    if (path === '/') {
+      let playSecond = Math.round(playedSeconds);
+        if ( playSecond === startSecond ) {
+          dispatch(showElement( {path: 'firstbanner/'}) );
         }
       } 
     }
   )
 
+  const keyDownHandler = (e: any) => {
+    dispatch( switchFocus({key: e.code}) )
+  }
+
   document.getElementById(currentFocusTarget)?.focus()
   
   return (
-    <div onKeyDown={(e) => keyPressListener(e)}>
-      {currentRender}
+    <div onKeyDown={keyDownHandler}>
+      {route({path})}
     </div>
   )
 }

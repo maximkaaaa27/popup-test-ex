@@ -1,18 +1,21 @@
-import React, { useContext } from 'react';
-import { BannerContext } from '../../context/banner/bannerContext';
-import { VideoPlayerContext } from '../../context/videoplayer/videoplayerContext';
+import React from 'react';
 import './_banner.scss';
 import qrCode from '../../assets/qr-code.svg';
+import { useAppDispatch } from '../../../hooks/hooks';
+import { pause } from '../../../redux/video_control_slice/videoPlayerSlice';
+import { showElement } from '../../../redux/navigate_slice/navigateSlice';
+import { Promo } from '../Promo/Promo';
 
 
 export const FirstBanner = () => {
 
-const { showPromo } = useContext(BannerContext);
-const { pause } = useContext(VideoPlayerContext);
+const dispatch = useAppDispatch();
+
+
 
 const handleOkBtn = () => {
-  showPromo();
-  pause();
+  dispatch ( showElement ({path: 'promo/'}) );
+  dispatch( pause() );
 }
 
 return (

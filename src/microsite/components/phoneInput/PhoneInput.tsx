@@ -1,14 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import './_phone-input.scss';
 import { Keyboard } from './Keyboard';
 import { PhoneValue } from './PhoneValue';
-import { BannerContext } from '../../context/banner/bannerContext';
+import { useAppDispatch } from '../../../hooks/hooks';
+import { showElement } from '../../../redux/navigate_slice/navigateSlice';
 
 
 export const PhoneInput = () => {
 
+  const dispatch = useAppDispatch();
   const initialPhone = ['+7'];
-  const { showFinal } = useContext(BannerContext);
   const [phone, setPhone] = useState(initialPhone);
   const [checkBox, setCheckBox] = useState(false);
 
@@ -21,6 +22,10 @@ export const PhoneInput = () => {
     if (target.value === '<<<' && phone.length > 1) {
       return setPhone(phone.slice(0,-1))
     }
+  }
+
+  const handleSubmitClick = () => {
+    dispatch(showElement( {path: 'finalPromo/'} ))
   }
 
 
@@ -74,7 +79,7 @@ export const PhoneInput = () => {
         disabled={!checkBox || !(phone.length === 11)} 
         className={(!checkBox || !(phone.length === 11)) ? 'btn-disabled' : 'btn-enable'}
         id="submit"
-        onClick={() => showFinal()}
+        onClick={handleSubmitClick}
         >
           <span>Подтвердить номер</span>
         </button>

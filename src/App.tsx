@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.scss';
-import { VideoPlayerContextProvider } from './microsite/context/videoplayer/videoplayerState';
-import { MicroSiteApp } from './microsite/MicrositeApp';
 import { VideoPlayerComponent } from './VideoPlayerComponent';
+
+import { Banner } from './microsite/Banner';
 
 
 
@@ -12,10 +12,12 @@ function App() {
   const volvoYT = 'https://www.youtube.com/embed/M7FIvfx5J10';
 
   return (
-    <VideoPlayerContextProvider>
-        <VideoPlayerComponent urlYouTube={volvoYT} />
-        <MicroSiteApp />
-    </VideoPlayerContextProvider>
+      <>
+      <VideoPlayerComponent urlYouTube={volvoYT} />
+      <Banner />
+      </>
+
+
   );
 }
 
