@@ -4,14 +4,21 @@ import { Keyboard } from './Keyboard';
 import { PhoneValue } from './PhoneValue';
 import { useAppDispatch } from '../../../hooks/hooks';
 import { showElement } from '../../../redux/navigate_slice/navigateSlice';
-
+import { useHttp } from '../../../hooks/http.hook';
 
 export const PhoneInput = () => {
-
+  
   const dispatch = useAppDispatch();
+
   const initialPhone = ['+7'];
   const [phone, setPhone] = useState(initialPhone);
   const [checkBox, setCheckBox] = useState(false);
+
+  const { request, loading } = useHttp();
+  const [failValid, setFailValid] = useState(false);
+  const access = process.env.REACT_APP_NUMVERIFY_V1;
+  const urlNumVerify = 'http://apilayer.net/api/validate?access_key=' + access + '&number=' + phone.join('');
+
 
   const handleNumClick = (target: any) => {  
 
@@ -24,9 +31,27 @@ export const PhoneInput = () => {
     }
   }
 
-  const handleSubmitClick = () => {
-    dispatch(showElement( {path: 'finalPromo/'} ))
+
+  const handleSubmitClick = async () => {
+    
+    try {
+      const { valid } = await request(urlNumVerify)
+
+      if ( valid ) {
+        dispatch(showElement( {path: 'finalPromo/'} )) 
+      } else {
+        setFailValid(true)
+        setTimeout(() => setFailValid(false), 3000)
+      }
+     
+    } catch(e) {
+
+    }
   }
+
+
+
+  
 
 
   return (
@@ -45,13 +70,15 @@ export const PhoneInput = () => {
       </div>
 
       <div className='phone-input__keyboard'>
-        {<Keyboard handleNumClick={handleNumClick}/>}
+        {<Keyboard handleNumClick={handleNumClick} />}
       </div>
 
+
       <div className='phone-input__check'>
+        
         <div className='phone-input__check__checkbox' >
           <div className='btn'>
-            <button onClick={() => setCheckBox(!checkBox)} id='check'>
+            <button onClick={() => setCheckBox(!checkBox)} id='check' className='keypad'>
               { checkBox && (       
                 <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -69,15 +96,18 @@ export const PhoneInput = () => {
             <span>Согласие на обработку персональных данных</span>
           </div> 
         </div>
+        { failValid && 
+          <div className='phone-input__check__invalid'>
+            Неверно введён номер
+          </div>
+        }
 
-        <div className='phone-input__check__invalid'>
-          Неверно введён номер
-        </div>
+
       </div>
       <div className='phone-input__submit-btn'>
         <button 
-        disabled={!checkBox || !(phone.length === 11)} 
-        className={(!checkBox || !(phone.length === 11)) ? 'btn-disabled' : 'btn-enable'}
+        disabled={!checkBox || !(phone.length === 11) || loading} 
+        className={(!checkBox || !(phone.length === 11) || loading) ? 'btn-disabled keypad' : 'btn-enable keypad'}
         id="submit"
         onClick={handleSubmitClick}
         >

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import qrCode from '../../assets/qr-code.svg';
 import './_promo.scss';
 
@@ -12,11 +12,16 @@ import { PhoneInput } from '../../components/phoneInput/PhoneInput';
 export const Promo = () => {
 
   const dispatch = useAppDispatch();
+  const closeBtn = useRef<HTMLDivElement>(null);
+
 
   const handleCloseClick = () => {
     dispatch ( closeAll() );
     dispatch( play() );
   }
+
+
+
 
   return (
     <div className='promo'>
@@ -24,8 +29,8 @@ export const Promo = () => {
         <PhoneInput />
       </div>
 
-      <div className='promo-right'>
-        <div className='close-btn' onClick={handleCloseClick}>
+      <div ref={closeBtn} className='promo-right'>
+        <div className='keypad close-btn' onClick={handleCloseClick}>
 
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
