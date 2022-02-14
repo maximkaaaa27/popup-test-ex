@@ -4,7 +4,7 @@ import { Keyboard } from './Keyboard';
 import { PhoneValue } from './PhoneValue';
 import { useAppDispatch } from '../../../hooks/hooks';
 import { showElement } from '../../../redux/navigate_slice/navigateSlice';
-import { useHttp } from '../../../hooks/http.hook';
+import { useNumverify } from '../../../hooks/verify.hook';
 
 export const PhoneInput = () => {
   
@@ -14,10 +14,9 @@ export const PhoneInput = () => {
   const [phone, setPhone] = useState(initialPhone);
   const [checkBox, setCheckBox] = useState(false);
 
-  const { request, loading } = useHttp();
+  const {validate, loading} = useNumverify()
   const [failValid, setFailValid] = useState(false);
-  const access = process.env.REACT_APP_NUMVERIFY_V1;
-  const urlNumVerify = 'http://apilayer.net/api/validate?access_key=' + access + '&number=' + phone.join('');
+ 
 
 
   const handleNumClick = (target: any) => {  
@@ -35,8 +34,8 @@ export const PhoneInput = () => {
   const handleSubmitClick = async () => {
     
     try {
-      const { valid } = await request(urlNumVerify)
-
+      const valid = await validate(phone);
+      console.log(valid)
       if ( valid ) {
         dispatch(showElement( {path: 'finalPromo/'} )) 
       } else {
@@ -49,9 +48,6 @@ export const PhoneInput = () => {
     }
   }
 
-
-
-  
 
 
   return (

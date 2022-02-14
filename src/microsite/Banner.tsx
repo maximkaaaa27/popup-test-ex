@@ -9,7 +9,6 @@ import { route } from '../routes';
 export const Banner = () => {
 
   const dispatch = useAppDispatch();
-  const fieldFocus = useRef<HTMLDivElement>(null)
 
   const { playedSeconds } = useAppSelector(state => state.videoPlayer.onProgress);
   const { path } = useAppSelector(state => state.navigation.currentRoute);
@@ -17,7 +16,6 @@ export const Banner = () => {
 
   const startSecond = 5; // ~seconds
 
-  const fieldFocusElements = fieldFocus.current?.querySelectorAll('.promo .keypad')
 
   useEffect (() => {
     if (path === '/') {
@@ -29,23 +27,11 @@ export const Banner = () => {
     }
   )
 
-  const setFocusElement = ({currentFocusTarget, fieldFocusElements} : {
-    currentFocusTarget: string,
-    fieldFocusElements: NodeListOf<Element> | undefined
-  }) => {
-
-    if (!fieldFocusElements) {
-      console.warn('Attention. NodeList of focusElements is empty'); 
-    } else {
-      fieldFocusElements.forEach(Element => {
-        if (Element.id === currentFocusTarget) console.log(Element)
-      })
-    }
-  }
-
   useEffect (() => {
-    setFocusElement({currentFocusTarget, fieldFocusElements})
+    document.getElementById(currentFocusTarget)?.focus()
   })
+
+  
 
   const keyDownHandler = (e: any) => {
 
@@ -55,7 +41,7 @@ export const Banner = () => {
 
   
   return (
-    <div onKeyDown={keyDownHandler} ref={fieldFocus}>
+    <div onKeyDown={keyDownHandler}>
       {route({path})}
     </div>
   )

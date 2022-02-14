@@ -1,22 +1,20 @@
 import { useCallback, useState } from 'react';
 
 
-export const useHttp = () => {
+const access = process.env.REACT_APP_NUMVERIFY_V1;
+const urlNumVerify = 'http://apilayer.net/api/validate?access_key=' + access + '&number=';
+
+export const useNumverify = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
+  const validate = useCallback(async (phone) => {
 
     setLoading(true)
 
     try {
 
-      if(body) {
-        body = JSON.stringify(body);
-        headers['Content-Type'] = 'application/json'
-      }
-
-      const response = await fetch(url, {method, body, headers});
+      const response = await fetch(urlNumVerify + phone.join(''));
       const data = await response.json();
 
       if (!response.ok) {
@@ -25,7 +23,7 @@ export const useHttp = () => {
 
       setLoading(false);
 
-      return data;
+      return data.valid;
 
     } catch(e : any) {
       setLoading(false);
@@ -34,9 +32,8 @@ export const useHttp = () => {
     }
 
   }, [])
-
   const clearError = useCallback(() => setError(null), []);
 
-  return { loading, request, error, clearError };
+  return { loading, validate, error, clearError };
 
 }
