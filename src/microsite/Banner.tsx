@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { switchFocus } from '../redux/arrow_navigate_slice/arrowNavigateSlice';
 import { showElement } from '../redux/navigate_slice/navigateSlice';
@@ -31,7 +31,7 @@ export const Banner = () => {
     document.getElementById(currentFocusTarget)?.focus()
   })
 
-  
+
 
   const keyDownHandler = (e: any) => {
 
